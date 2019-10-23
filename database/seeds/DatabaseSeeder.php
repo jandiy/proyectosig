@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
         DB::insert('insert into grupo (nombre,estado) values (?,?)', [ 'Ambulancia',1]); 
         DB::insert('insert into grupo (nombre,estado) values (?,?)', [ 'Bombero',1]); 
         DB::insert('insert into grupo (nombre,estado) values (?,?)', [ 'Policia',1]); 
-        DB::insert('insert into especialidad (nombre,grupo_id,estado) values (?,?)', [ 'Pac',1,3]); 
+        DB::insert('insert into especialidad (nombre,estado,grupo_id) values (?,?,?)', [ 'Pac',1,3]); 
     }
 }
