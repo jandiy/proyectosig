@@ -1,5 +1,6 @@
 <!-- jQuery 2.2.3 -->
-<script src="{{asset('jQuery/dist/jquery.min.js')}}"></script>
+<!--<script src="{{asset('jQuery/dist/jquery.min.js')}}"></script>-->
+<script src="/jQuery/dist/jquery.min.jss"></script>
 <!-- jQuery UI 1.11.4 -->
 
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
