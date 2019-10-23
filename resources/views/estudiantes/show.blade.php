@@ -5,10 +5,10 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2> Detalle Ayudante</h2>
+                <h2> Detalle estudiante</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('ayudantes.index') }}"> Back</a>
+                <a class="btn btn-primary" href="{{ route('estudiantes.index') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -16,49 +16,52 @@
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
                 <strong>Nombre:</strong>
-                {{ $ayudante->nombre }}
+                {{ $estudiante->nombre }}
             </div>
             <div class="form-group">
                 <strong>Apellido:</strong>
-                {{ $ayudante->apellido }}
+                {{ $estudiante->apellido }}
             </div>
             <div class="form-group">
                 <strong>Fecha Nacimiento:</strong>
-                {{ $ayudante->fecha_nacimiento }}
+                {{ $estudiante->fecha_nacimiento }}
             </div>
             <div class="form-group">
                 <strong>Genero:</strong>
-                {{ $ayudante->genero }}
+                {{ $estudiante->genero }}
             </div>
             <div class="form-group">
                 <strong>Correo:</strong>
-                {{ $ayudante->correo }}
+                {{ $estudiante->correo }}
             </div>
             <div class="form-group">
                 <strong>Celular:</strong>
-                {{ $ayudante->celular }}
+                {{ $estudiante->celular }}
             </div>
             <div class="form-group">
                 <strong>Contacto Emergencia:</strong>
-                {{ $ayudante->contacto_emergencia }}
+                {{ $estudiante->contacto_emergencia }}
             </div>
-            <div class="form-group">
-                @foreach($especialidad as $key=>$e)
-                <strong>Especialidad:</strong>
-                {{$e->nom}} &nbsp;&nbsp;{{ $e->nombre }}
-                @endforeach
-            </div>
-            <div class="form-group">
-                @foreach($movil as $key=>$m)
-                <strong>Fecha registro:</strong>
-                {{ $m->fecha_registro }}
-                @endforeach
-            </div>
+            @foreach($movil as $key=>$m)
+                <div class="form-group">
+                    <strong>Facultad:</strong>
+                    {{ $m->facultad }}
+                </div>
+                <div class="form-group">
+                    <strong>Carrera:</strong>
+                    {{ $m->carrera }}
+                </div>
+                <div class="form-group">
+                    <strong>Fecha registro:</strong>
+                    {{ $m->fecha_registro }}
+                </div>
+            @endforeach
+            
         </div>
 
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
-                <img src="{{Storage::Url('upload/'.$ayudante->foto) }}" alt="{{$ayudante->foto}}" height="150vh" width="150vh" class="img-thumbnail">
+                <img src="{{Storage::Url('upload/'.$estudiante->foto) }}" alt="{{$estudiante->foto}}" height="150vh" width="150vh" class="img-thumbnail">
                     
             </div>
         </div>

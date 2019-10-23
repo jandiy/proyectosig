@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123123')
         ]);
         
-        DB::insert('insert into grupo (nombre) values (?)', [ 'Ambulancia']); 
-        DB::insert('insert into grupo (nombre) values (?)', [ 'Bombero']); 
-        DB::insert('insert into grupo (nombre) values (?)', [ 'Policia']); 
+        DB::insert('insert into grupo (nombre,estado) values (?,?)', [ 'Ambulancia',1]); 
+        DB::insert('insert into grupo (nombre,estado) values (?,?)', [ 'Bombero',1]); 
+        DB::insert('insert into grupo (nombre,estado) values (?,?)', [ 'Policia',1]); 
     }
 }

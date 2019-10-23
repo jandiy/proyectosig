@@ -16,6 +16,7 @@ class CreateEspecialidad extends Migration
         Schema::create('especialidad', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->integer('estado');
             $table->integer('grupo_id')->unsigned();
             $table->foreign('grupo_id')->references('id')->on('grupo')
                 ->onUpdate('cascade')->onDelete('cascade');

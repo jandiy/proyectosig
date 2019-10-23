@@ -1,7 +1,7 @@
 <div class="modal modal-danger fade in" aria-hidden="true"
-     role="dialog" tabindex="-1" id="modal-delete-{{$ayudante->id}}"
+     role="dialog" tabindex="-1" id="modal-delete-{{$especialidad->id}}"
      style="(display: block; padding-right: 17px;)">
-    {{Form::Open(array('action'=>array('AyudanteController@destroy',$ayudante->id),'method'=>'delete'))}}
+    {{Form::Open(array('action'=>array('EspecialidadController@destroy',$especialidad->id),'method'=>'delete'))}}
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,10 +9,10 @@
                         aria-label="Close">
                     <span aria-hidden="true">x</span>
                 </button>
-                <h4 class="modal-title">Eliminar Ayudante</h4>
+                <h4 class="modal-title">Eliminar Especialidad</h4>
             </div>
             <div class="modal-body">
-                <p>Confirme si desea eliminar la ayudante</p>
+                <p>Confirme si desea eliminar la especialidad</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

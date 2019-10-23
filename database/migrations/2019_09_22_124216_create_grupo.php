@@ -16,7 +16,7 @@ class CreateGrupo extends Migration
         Schema::create('grupo', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
-          
+            $table->integer('estado');
         });
     }
 

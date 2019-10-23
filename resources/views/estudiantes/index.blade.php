@@ -38,14 +38,13 @@
                 <td>{{ $estudiante->nombre }}</td>
                 <td>{{ $estudiante->apellido }}</td>
                 <td>
-                    <a class="btn btn-app" style="min-width: 60px;height: 60px"  href="" data-target="#modal-mostrar-{{$estudiante->id}}" data-toggle="modal"><i class="fa  fa-info"></i>
-                        Ver
+                    <a class="btn btn-app" style="min-width: 60px;height: 60px"  href="{{ route('ayudantes.show',$ayudante->id) }}"><i class="fa  fa-info"></i>
+                        Show
                     </a>
                   
                    
                 </td>
             </tr>
-            @include('estudiantes.mostrar')
         @endforeach
         </tbody>
     </table>

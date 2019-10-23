@@ -44,35 +44,72 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div id="map" style="width:100%;height:400px;"></div>
             </div>
-        <?php
+            <script>
+////////////////////// codigo del MAPA ///////////NO TOCAR
+var marker;          //variable del marcador
+//coordenadas obtenidas con la geolocalización
 
-            $map="'map'";
+//Funcion principal
+var coords = {};    //coordenadas obtenidas con la geolocalización
 
-            echo '<script> 
-                    var map;';
-            echo  'var m={lat:-17.776209, lng: -63.194962};
-            
-                function initMap() {
-                map = new google.maps.Map(document.getElementById( ';
-                echo $map;
-            echo '), {
-                center: m,
-                zoom: 14
-                });';
+//Funcion principal
+initMap = function ()
+{
+    //usamos la API para geolocalizar el usuario
+            coords =  {
+                lng: -63.18224981914062,
+                lat: -17.782958778663453
+            };
+            setMapa(coords);  //pasamos las coordenadas al metodo para crear el mapa
+}
+function setMapa (coords1,coords2 )
+{
+    //Se crea una nueva instancia del objeto mapa
+    var map = new google.maps.Map(document.getElementById('map'),
+        {
+            zoom: 15,
+            center:new google.maps.LatLng(coords.lat,coords.lng),
 
-            echo 'var marker = new google.maps.Marker({position: m, map: map});}';
-			echo "</script>";
-
-        ?>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAofod0Bp0frLcLHVLxuacn0QBXqVyJ7lc&callback=initMap"></script>
-			
+        });
+    //Creamos el marcador en el mapa con sus propiedades
+    //para nuestro obetivo tenemos que poner el atributo draggable en true
+    //position pondremos las mismas coordenas que obtuvimos en la geolocalización
+    marker = new google.maps.Marker({
+        map: map,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: new google.maps.LatLng(coords.lat,coords.lng),
+    });
+    //agregamos un evento al marcador junto con la funcion callback al igual que el evento dragend que indica
+    //cuando el usuario a soltado el marcador
+    marker.addListener('click', toggleBounce);
+    marker.addListener( 'dragend', function (event)
+    {
+        //escribimos las coordenadas de la posicion actual del marcador dentro del input #coords
+        document.getElementById("latitud").value = this.getPosition().lat();
+        document.getElementById("longitud").value = this.getPosition().lng();
+      //  document.getElementById("nombre").value = this.getPosition().lng();
+    });
+}
+//callback al hacer clic en el marcador lo que hace es quitar y poner la animacion BOUNCE
+function toggleBounce() {
+    if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+    } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+}
+//////////////////// codigo del MAPA ///////////NO TOCAR
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAofod0Bp0frLcLHVLxuacn0QBXqVyJ7lc&callback=initMap"
+    async defer></script>
         <input type="hidden" id="latitud" name="latitud" >
         <input type="hidden" id="longitud" name="longitud">
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Nombre:</strong>
-                {!! Form::text('nombre', null, array('placeholder' => 'nombre','class' => 'form-control')) !!}
+                {!! Form::text('nombre', null, array('placeholder' => 'nombre','class' => 'form-control', 'id'=> 'nombre')) !!}
             </div>
         </div>
         
@@ -129,6 +166,18 @@
                 {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
             </div>
         </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
+                    <strong>Especialidades:</strong>
+                    <select name="especialidad" class="form-control selectpicker"  id="especialidad" data-live-search="true">
+                    @foreach($especialidades as $key => $g)
+                        <option value="{{$g->id}}">{{$g->nombre}} &nbsp;&nbsp;{{$g->espe}}</option>
+                    @endforeach
+                    </select>
+            </div>
+        </div>
+       
+      
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
       
             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -149,6 +198,8 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+
+    
 
  
 

@@ -46,7 +46,7 @@
                 <ul class="treeview-menu">
                     <li ><a href="{{ route('estudiantes.index') }}"><i class="fa fa-circle-o"></i>Estudiante</a></li>
                     <li ><a href="{{ route('ayudantes.index') }}"><i class="fa fa-circle-o"></i>Ayudante</a></li>
-                  
+                    <li ><a href="{{ route('especialidades.index') }}"><i class="fa fa-circle-o"></i>Especialidad</a></li>
                 </ul>            
             </li>
            

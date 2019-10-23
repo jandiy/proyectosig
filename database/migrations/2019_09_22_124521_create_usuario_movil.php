@@ -26,7 +26,6 @@ class CreateUsuarioMovil extends Migration
             $table->integer('contacto_emergencia');
             $table->double('latitud',15,10);
             $table->double('longitud',15,10);
-            $table->integer('estado');
         });
     }
 
