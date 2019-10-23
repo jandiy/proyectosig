@@ -1,5 +1,6 @@
 <!-- jQuery 2.2.3 -->
-<script src="{{asset('jQuery/dist/jquery.min.js')}}"></script>
+<!--<script src="{{asset('jQuery/dist/jquery.min.js')}}"></script>-->
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"> </script>
 <!--<script src="/jQuery/dist/jquery.min.jss"></script>-->
 <!-- jQuery UI 1.11.4 -->
 
@@ -12,8 +13,8 @@
 
 
 <!-- Bootstrap 3.3.6 -->
-<!--<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>-->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
 <script src="{{asset('plugins/morris/morris.js')}}"></script>
