@@ -47,6 +47,14 @@
                     <li ><a href="{{ route('estudiantes.index') }}"><i class="fa fa-circle-o"></i>Estudiante</a></li>
                     <li ><a href="{{ route('ayudantes.index') }}"><i class="fa fa-circle-o"></i>Ayudante</a></li>
                     <li ><a href="{{ route('especialidades.index') }}"><i class="fa fa-circle-o"></i>Especialidad</a></li>
+                    <li><a href="{{ url('/login') }}"
+                                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                <i class="fa fa-sign-out fa-fw"></i> Logout</a>
+
+                                <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                   {{ csrf_field() }}
+                                </form>
+                    </li>
                 </ul>            
             </li>
            
