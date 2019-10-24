@@ -64,7 +64,8 @@ class AyudanteController extends Controller
         $usuario->nombre  = $request->input('nombre');
         $usuario->apellido = $request->input('apellido');
         $usuario->correo = $request->input('correo');
-        $usuario->contrasena = Hash::make($request->input('contrasena'));
+        $usuario->contrasena = $request->input('contrasena');
+       // $usuario->contrasena = Hash::make($request->input('contrasena'));
         $usuario->genero = $request->input('genero');
         $usuario->fecha_nacimiento = $request->input('fecha_nacimiento');
         $usuario->celular= $request->input('celular');
@@ -155,7 +156,8 @@ class AyudanteController extends Controller
         $usuario->nombre  = $request->input('nombre');
         $usuario->apellido = $request->input('apellido');
         $usuario->correo = $request->input('correo');
-        $usuario->contrasena = Hash::make($request->input('contrasena'));
+       // $usuario->contrasena = Hash::make($request->input('contrasena'));
+        $usuario->contrasena = $request->input('contrasena');
         $usuario->genero = $request->input('genero');
         $usuario->fecha_nacimiento = $request->input('fecha_nacimiento');
         $usuario->celular= $request->input('celular');
