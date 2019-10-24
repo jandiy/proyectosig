@@ -28,7 +28,7 @@ Route::get('perfiles/edit',['as'=>'perfiles.edit','uses'=>'PerfilController@edit
 Route::patch('perfiles/{id}',['as'=>'perfiles.update','uses'=>'PerfilController@update']);
 Route::post('perfiles/contrasena',['as'=>'perfiles.contrasena','uses'=>'PerfilController@updateB']);
 
-Route::get('/ayudantelogin', 'AyudanteController@login');
+Route::get('ayudantelogin', 'AyudanteController@login');
 Route::get('especialidades',['as'=>'especialidades.index','uses'=>'EspecialidadController@index']);
 Route::post('especialidades/create',['as'=>'especialidades.store','uses'=>'EspecialidadController@store']);
 Route::patch('especialidades/{id}',['as'=>'especialidades.update','uses'=>'EspecialidadController@update']);
