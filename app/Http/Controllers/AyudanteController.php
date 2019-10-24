@@ -35,7 +35,7 @@ class AyudanteController extends Controller
         //$ayudante = DB::select("select um.id
        // from usuario_movil as um, ayudante as a
        // where um.id=a.usuario_id");
-       $ayudante= DB::select("select um.id, um.nombre, um.apellido, um.foto, um.correo, um.contrasena, um.celular, um.contacto_emergencia, um.latiud, um.longitud, a.fecha_registro, a.estado
+       $ayudante= DB::select("select um.id, um.nombre, um.apellido, um.foto, um.correo, um.contrasena, um.celular, um.contacto_emergencia, um.latitud, um.longitud, a.fecha_registro, a.estado
        from usuario_movil as um, ayudante as a
        where um.id=a.usuario_id");
         return response()->json($ayudante);
