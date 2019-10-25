@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::resource('estudiantes','EstudianteController');
 Route::resource('ayudantes','AyudanteController');
 Route::resource('webs','UsuarioController');
+Route::post('estudiantepost', 'EstudianteController@store');
 //Route::resource('especialidades','EspecialidadController');
 Auth::routes();
 
