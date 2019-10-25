@@ -81,7 +81,7 @@ class EstudianteController extends Controller
         from usuario_movil as um
         where um.contrasena=".$con." and um.email=".$em);*/
         $usuario=DB::table('usuario_movil as um')       
-         ->select('um.id', 'um.nombre', 'um.apellido', 'um.foto', 'um.correo, um.contrasena', 'um.celular', 'um.contacto_emergencia', 'um.latitud', 'um.longitud')
+         ->select('um.id', 'um.nombre', 'um.apellido', 'um.foto', 'um.correo','um.contrasena', 'um.celular', 'um.contacto_emergencia', 'um.latitud', 'um.longitud')
          ->where('um.email',$em)
          ->where('um.contrasena',$con)
          ->get();
