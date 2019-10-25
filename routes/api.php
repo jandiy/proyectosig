@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('ayudantelogin', 'AyudanteController@login');
 Route::post('estudiantepost', 'EstudianteController@store');
+Route::get('estudianteDatos', 'EstudianteController@getDatos');
