@@ -35,3 +35,6 @@ Route::get('especialidades',['as'=>'especialidades.index','uses'=>'EspecialidadC
 Route::post('especialidades/create',['as'=>'especialidades.store','uses'=>'EspecialidadController@store']);
 Route::patch('especialidades/{id}',['as'=>'especialidades.update','uses'=>'EspecialidadController@update']);
 Route::delete('especialidades/{id}',['as'=>'especialidades.destroy','uses'=>'EspecialidadController@destroy']);
+
+Route::get('trabajos',['as'=>'trabajos.index','uses'=>'TrabajoController@index']);
+Route::get('emergencias',['as'=>'emergencias.index','uses'=>'EmergenciaController@index']);

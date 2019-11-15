@@ -66,7 +66,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-        
+                <li ><a href="{{ route('trabajos.index') }}"><i class="fa fa-circle-o"></i>Listado</a></li>
                 </ul>            
             </li>
       
