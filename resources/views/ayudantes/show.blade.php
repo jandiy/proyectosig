@@ -57,10 +57,12 @@
             <div class="form-group">
                 <strong>Direccion:</strong>
                 {{ $ayudante->latitud }}
+                <input type="text" id="longitud" value="{{$ayudante->longitud}}">
+                <input type="text" id="latitud" value="{{$ayudante->latitud}}">
                 <script>
                     var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
-                    var latitude = parseFloat(document.getElementByName("latitud").value);
-                    var longitude = parseFloat(document.getElementByName("longitud").value);
+                    var latitude = parseFloat(document.getElementById("latitud").value);
+                    var longitude = parseFloat(document.getElementById("longitud").value);
                     console.log(document.getElementById("longitud").value);
                     console.log(longitude);
                     var api_url = 'https://api.opencagedata.com/geocode/v1/json'
@@ -112,8 +114,7 @@
         </div>
 
         <div class="col-xs-6 col-sm-6 col-md-6">
-        <input type="text" name="longitud" value="{{$ayudante->longitud}}">
-        <input type="text" name="latitud" value="{{$ayudante->latitud}}">
+        
             <div class="form-group">
                 <img src="{{Storage::Url('upload/'.$ayudante->foto) }}" alt="{{$ayudante->foto}}" height="150vh" width="150vh" class="img-thumbnail">
                     
