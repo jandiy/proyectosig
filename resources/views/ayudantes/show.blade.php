@@ -59,8 +59,8 @@
                 {{ $ayudante->latitud }}
                 <script>
                     var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
-                    var latitude = parseFloat(document.getElementById("latitud").value);
-                    var longitude = parseFloat(document.getElementById("longitud").value);
+                    var latitude = parseFloat(document.getElementByName("latitud").value);
+                    var longitude = parseFloat(document.getElementByName("longitud").value);
                     console.log(document.getElementById("longitud").value);
                     console.log(longitude);
                     var api_url = 'https://api.opencagedata.com/geocode/v1/json'
