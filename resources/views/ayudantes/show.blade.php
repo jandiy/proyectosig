@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
                 <strong>Celular:</strong>
-                {{ $ayudante->celular }}
+                {{ $ayudante->celular }} 
             </div>
             <div class="form-group">
                 <strong>Contacto Emergencia:</strong>
@@ -51,12 +51,68 @@
             <div class="form-group">
                 @foreach($movil as $key=>$m)
                 <strong>Fecha registro:</strong>
-                {{ $m->fecha_registro }}
+                {{ $m->fecha_registro }} 
                 @endforeach
+            </div>
+            <div class="form-group">
+                <strong>Direccion:</strong>
+                {{ $ayudante->latitud }}
+                <script>
+                    var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
+                    var latitude = parseFloat(document.getElementById("latitud").value)||0;
+                    var longitude = parseFloat(document.getElementById("longitud").value)||0;
+
+                    var api_url = 'https://api.opencagedata.com/geocode/v1/json'
+
+                    var request_url = api_url
+                        + '?'
+                        + 'key=' + apikey
+                        + '&q=' + encodeURIComponent(latitude + ',' + longitude)
+                        + '&pretty=1'
+                        + '&no_annotations=1';
+
+                    // see full list of required and optional parameters:
+                    // https://opencagedata.com/api#forward
+
+                    var request = new XMLHttpRequest();
+                    request.open('GET', request_url, true);
+
+                    request.onload = function() {
+                        // see full list of possible response codes:
+                        // https://opencagedata.com/api#codes
+
+                        if (request.status == 200){ 
+                        // Success!
+                        var data = JSON.parse(request.responseText);
+                        alert(data.results[0].formatted);
+
+                        } else if (request.status <= 500){ 
+                        // We reached our target server, but it returned an error
+                                            
+                        console.log("unable to geocode! Response code: " + request.status);
+                        var data = JSON.parse(request.responseText);
+                        console.log(data.status.message);
+                        } else {
+                        console.log("server error");
+                        }
+                    };
+
+                    request.onerror = function() {
+                        // There was a connection error of some sort
+                        console.log("unable to connect to server");        
+                    };
+
+                    request.send();  // make the request
+                                                
+                    </script>
+
+
             </div>
         </div>
 
         <div class="col-xs-6 col-sm-6 col-md-6">
+        <input type="hidden" name="longitud" value="{{$ayudante->longitud}}">
+        <input type="hidden" name="latitud" value="{{$ayudante->latitud}}">
             <div class="form-group">
                 <img src="{{Storage::Url('upload/'.$ayudante->foto) }}" alt="{{$ayudante->foto}}" height="150vh" width="150vh" class="img-thumbnail">
                     

@@ -31,6 +31,10 @@
                         <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
                     @endforeach
                     </select>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
                     <button type="submit" class="btn btn-primary">Ok</button>
                     {{ Form::close() }}
             </div>
