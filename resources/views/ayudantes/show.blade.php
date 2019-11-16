@@ -55,8 +55,8 @@
                 @endforeach
             </div>
             <div class="form-group">
-                <strong>Direccion:</strong>
-                <input type="text" id="direccion" value="" disabled>
+                
+                
                 <input type="hidden" id="longitud" value="{{$ayudante->longitud}}">
                 <input type="hidden" id="latitud" value="{{$ayudante->latitud}}">
                 <script>
@@ -120,8 +120,11 @@
                     
             </div>
         </div>
-        <div class="col-xs-6 col-sm-6 col-md-6">
-            
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Direccion:</strong>
+                <input type="text" id="direccion" class="form-control" value="" disabled>
+            </div>
         </div>
         
     </div>
