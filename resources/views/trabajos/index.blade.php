@@ -21,7 +21,8 @@
         </div>
     @endif
     <div class="row">
-        <div class="form-group">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="form-group">
                     
                     {{ Form::open(['route' => ['trabajos.index'], 'method' => 'GET']) }}
                     <strong>Grupo:</strong>
@@ -30,8 +31,9 @@
                         <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
                     @endforeach
                     </select>
-                        {{ Form::submit('Search') }}
+                    <button type="submit" class="btn btn-primary">Ok</button>
                     {{ Form::close() }}
+            </div>
         </div>
     </div>
     <table id="example" class="display" cellspacing="0" width="100%">

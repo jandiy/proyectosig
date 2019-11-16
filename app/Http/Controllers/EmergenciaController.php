@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Trabajo;
+use App\DetalleTrabajo;
 
 class EmergenciaController extends Controller
 {
