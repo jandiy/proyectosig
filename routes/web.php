@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::resource('estudiantes','EstudianteController');
 Route::resource('ayudantes','AyudanteController');
 Route::resource('webs','UsuarioController');
+Route::resource('trabajos','TrabajoController');
 Route::post('estudiantepost', 'EstudianteController@store');
 Route::get('estudianteDatos', 'EstudianteController@getDatos');
 //Route::resource('especialidades','EspecialidadController');
@@ -36,5 +37,5 @@ Route::post('especialidades/create',['as'=>'especialidades.store','uses'=>'Espec
 Route::patch('especialidades/{id}',['as'=>'especialidades.update','uses'=>'EspecialidadController@update']);
 Route::delete('especialidades/{id}',['as'=>'especialidades.destroy','uses'=>'EspecialidadController@destroy']);
 
-Route::get('trabajos',['as'=>'trabajos.index','uses'=>'TrabajoController@index']);
+//Route::get('trabajos',['as'=>'trabajos.index','uses'=>'TrabajoController@index']);
 Route::get('emergencias',['as'=>'emergencias.index','uses'=>'EmergenciaController@index']);

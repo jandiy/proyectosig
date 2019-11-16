@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h1>Visualizar Estudiante</h1>
+                <h1>Visualizar trabajo</h1>
             </div>
             <div class="pull-right">
 
@@ -20,25 +20,32 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+    <div class="row">
+    
+    </div>
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
         <tr>            
             <th>Id</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
+            <th>Direccion</th>
+            <th>Fecha</th>
+            <th>Trabajador</th>
+            <th>Estado</th>
             <th width="280px">Accion</th>
         </tr>
         </thead>
         <tfoot>
         </tfoot>
         <tbody>
-        @foreach ($estudiantes as $key => $estudiante)
+        @foreach ($trabajos as $key => $trabajo)
             <tr>
-                <td>{{ $estudiante->id }}</td>
-                <td>{{ $estudiante->nombre }}</td>
-                <td>{{ $estudiante->apellido }}</td>
+                <td>{{ $trabajo->id }}</td>
+                <td>{{ $trabajo->longitudA }}</td>
+                <td>{{ $trabajo->fecha }}</td>
+                <td>{{ $trabajo->nombre }}&nbsp;{{ $trabajo->apellido }}</td>
+                <td>{{ $trabajo->estado}}</td>
                 <td>
-                    <a class="btn btn-app" style="min-width: 60px;height: 60px"  href="{{ route('ayudantes.show',$ayudante->id) }}"><i class="fa  fa-info"></i>
+                    <a class="btn btn-app" style="min-width: 60px;height: 60px"  href="{{ route('ayudantes.show',$trabajo->id) }}"><i class="fa  fa-info"></i>
                         Show
                     </a>
                   
