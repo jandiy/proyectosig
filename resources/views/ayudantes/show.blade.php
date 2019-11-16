@@ -56,15 +56,14 @@
             </div>
             <div class="form-group">
                 <strong>Direccion:</strong>
-                {{ $ayudante->latitud }}
-                <input type="text" id="longitud" value="{{$ayudante->longitud}}">
-                <input type="text" id="latitud" value="{{$ayudante->latitud}}">
+                <input type="text" id="direccion" value="" disabled>
+                <input type="hidden" id="longitud" value="{{$ayudante->longitud}}">
+                <input type="hidden" id="latitud" value="{{$ayudante->latitud}}">
                 <script>
                     var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
                     var latitude = parseFloat(document.getElementById("latitud").value);
                     var longitude = parseFloat(document.getElementById("longitud").value);
-                    console.log(document.getElementById("longitud").value);
-                    console.log(longitude);
+                   
                     var api_url = 'https://api.opencagedata.com/geocode/v1/json'
 
                     var request_url = api_url
@@ -87,7 +86,8 @@
                         if (request.status == 200){ 
                         // Success!
                         var data = JSON.parse(request.responseText);
-                        alert(data.results[0].formatted);
+                        document.getElementById("direccion").value=data.results[0].formatted;
+                       // alert(data.results[0].formatted);
 
                         } else if (request.status <= 500){ 
                         // We reached our target server, but it returned an error
