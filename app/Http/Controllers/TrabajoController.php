@@ -11,11 +11,19 @@ class TrabajoController extends Controller
     {
         $grupo=$request->input('grupo');
         $grupos=DB::select("select id, nombre from grupo");
-        $trabajos = DB::select("select t.id, um.nombre, um.apellido, dt.nombre as estado, em.longitud, em.latitud, t.fecha
-        from usuario_movil as um, trabajo as t, detalle_especialidad as de, detalle_trabajo as dt, especialidad as e, grupo as g, emergencia as em
-        where um.id=de.ayudante_id and de.especialidad_id=e.id and e.grupo_id=g.id and dt.trabajo_id=t.id and de.id=dt.dtespecialidad_id 
-        and em.id=t.emergencia_id and dt.estado='activo' and g.id=".$grupo);  
-         
+        if($grupo != null){
+            $trabajos = DB::select("select t.id, um.nombre, um.apellido, dt.nombre as estado, em.longitud, em.latitud, t.fecha
+            from usuario_movil as um, trabajo as t, detalle_especialidad as de, detalle_trabajo as dt, especialidad as e, grupo as g, emergencia as em
+            where um.id=de.ayudante_id and de.especialidad_id=e.id and e.grupo_id=g.id and dt.trabajo_id=t.id and de.id=dt.dtespecialidad_id 
+            and em.id=t.emergencia_id and dt.estado='activo' and g.id=".$grupo);  
+        }
+        else{
+            $trabajos = DB::select("select t.id, um.nombre, um.apellido, dt.nombre as estado, em.longitud, em.latitud, t.fecha
+            from usuario_movil as um, trabajo as t, detalle_especialidad as de, detalle_trabajo as dt, especialidad as e, grupo as g, emergencia as em
+            where um.id=de.ayudante_id and de.especialidad_id=e.id and e.grupo_id=g.id and dt.trabajo_id=t.id and de.id=dt.dtespecialidad_id 
+            and em.id=t.emergencia_id and dt.estado='activo'");  
+        }
+
         return view('trabajos.index',compact('trabajos','grupos'));
     }
     public function show($id)
