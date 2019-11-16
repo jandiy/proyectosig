@@ -22,13 +22,17 @@
     @endif
     <div class="row">
         <div class="form-group">
+                    
+                    {{ Form::open(['route' => ['trabajos.index'], 'method' => 'GET']) }}
                     <strong>Grupo:</strong>
                     <select name="grupo" class="form-control selectpicker"  id="grupo" data-live-search="true">
-                    @foreach ($grupos as $key => $g)
+                    @foreach ($grupos as $key => $grupo)
                         <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
                     @endforeach
                     </select>
-            </div>
+                        {{ Form::submit('Search') }}
+                    {{ Form::close() }}
+        </div>
     </div>
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
