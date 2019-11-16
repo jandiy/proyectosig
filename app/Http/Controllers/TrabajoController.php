@@ -13,19 +13,18 @@ class TrabajoController extends Controller
         $grupos=DB::select("select id, nombre from grupo");
         
         if($grupo != null){
-            dd("entro 1");
+          //  dd("entro 1");
             $trabajos = DB::select("select t.id, um.nombre, um.apellido, dt.nombre as estado, em.longitud, em.latitud, t.fecha
             from usuario_movil as um, trabajo as t, detalle_especialidad as de, detalle_trabajo as dt, especialidad as e, grupo as g, emergencia as em
             where um.id=de.ayudante_id and de.especialidad_id=e.id and e.grupo_id=g.id and dt.trabajo_id=t.id and de.id=dt.dtespecialidad_id 
-            and em.id=t.emergencia_id and dt.estado='activo' and g.id=".$grupo); 
+            and em.id=t.emergencia_id and dt.estado=1 and g.id=".$grupo); 
 
         }
         else{
-            dd("entro 2");
+           // dd("entro 2");
             $trabajos = DB::select("select t.id, um.nombre, um.apellido, dt.nombre as estado, em.longitud, em.latitud, t.fecha
-            from usuario_movil as um, trabajo as t, detalle_especialidad as de, detalle_trabajo as dt, especialidad as e, grupo as g, emergencia as em
-            where um.id=de.ayudante_id and de.especialidad_id=e.id and e.grupo_id=g.id and dt.trabajo_id=t.id and de.id=dt.dtespecialidad_id 
-            and em.id=t.emergencia_id and dt.estado='activo'");  
+            from detalle_trabajo as dt, trabajo as t, usuario_movil as um, detalle_especialidad as de, especialidad as e, grupo as g, emergencia as em
+            where dt.trabajo_id=t.id and de.id=dt.dtespecialidad_id and um.id=de.ayudante_id and de.especialidad_id=e.id and e.grupo_id=g.id  and em.id=t.emergencia_id and dt.estado=1");  
         }
 
         return view('trabajos.index',compact('trabajos','grupos'));
