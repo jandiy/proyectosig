@@ -112,8 +112,8 @@
         </div>
 
         <div class="col-xs-6 col-sm-6 col-md-6">
-        <input type="hidden" name="longitud" value="{{$ayudante->longitud}}">
-        <input type="hidden" name="latitud" value="{{$ayudante->latitud}}">
+        <input type="text" name="longitud" value="{{$ayudante->longitud}}">
+        <input type="text" name="latitud" value="{{$ayudante->latitud}}">
             <div class="form-group">
                 <img src="{{Storage::Url('upload/'.$ayudante->foto) }}" alt="{{$ayudante->foto}}" height="150vh" width="150vh" class="img-thumbnail">
                     
