@@ -11,6 +11,7 @@ class TrabajoController extends Controller
     {
         $grupo=$request->input('grupo');
         $grupos=DB::select("select id, nombre from grupo");
+        dd($grupo);
         if($grupo != null){
             $trabajos = DB::select("select t.id, um.nombre, um.apellido, dt.nombre as estado, em.longitud, em.latitud, t.fecha
             from usuario_movil as um, trabajo as t, detalle_especialidad as de, detalle_trabajo as dt, especialidad as e, grupo as g, emergencia as em

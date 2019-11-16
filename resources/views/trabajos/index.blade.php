@@ -21,7 +21,14 @@
         </div>
     @endif
     <div class="row">
-    
+        <div class="form-group">
+                    <strong>Grupo:</strong>
+                    <select name="grupo" class="form-control selectpicker"  id="grupo" data-live-search="true">
+                    @foreach ($grupos as $key => $g)
+                        <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
+                    @endforeach
+                    </select>
+            </div>
     </div>
     <table id="example" class="display" cellspacing="0" width="100%">
         <thead>
