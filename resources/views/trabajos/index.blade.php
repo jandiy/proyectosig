@@ -96,7 +96,7 @@ window.onload = function(){
                     var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
                     var latitude = parseFloat(document.getElementById("latitud"+cont1.toString()).value);
                     var longitude = parseFloat(document.getElementById("longitud"+cont1.toString()).value);
-                   
+                    alert(latitude);
                     var api_url = 'https://api.opencagedata.com/geocode/v1/json'
 
                     var request_url = api_url
@@ -120,6 +120,7 @@ window.onload = function(){
                         // Success!
                         var data = JSON.parse(request.responseText);
                         document.getElementById("direccion"+cont1.toString()).value=data.results[0].formatted;
+                        alert(data.results[0].formatted);
                         cont1++;
                        // alert(data.results[0].formatted);
 
