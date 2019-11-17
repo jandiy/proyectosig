@@ -96,7 +96,7 @@ window.onload = function(){
                     var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
                     var latitude = parseFloat(document.getElementById("latitud"+cont1.toString()).value);
                     var longitude = parseFloat(document.getElementById("longitud"+cont1.toString()).value);
-                    alert("latitud"+cont1.toString());
+                    alert(latitude);
                     var api_url = 'https://api.opencagedata.com/geocode/v1/json'
 
                     var request_url = api_url
@@ -130,6 +130,7 @@ window.onload = function(){
                         console.log("unable to geocode! Response code: " + request.status);
                         var data = JSON.parse(request.responseText);
                         console.log(data.status.message);
+                        alert(data.status.message);
                         } else {
                         console.log("server error");
                         }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DetalleTurno extends Model
 {
     protected $table = "detalle_turno";
-    protected $fillable = ['id','nombre','estado','transporte'];
+    protected $fillable = ['id','hora_inicio','nombre','estado','transporte'];
     public $timestamps=false;
     protected $primaryKey = 'id';
 }
