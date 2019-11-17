@@ -92,11 +92,12 @@ window.onload = function(){
                     var yea=document.getElementById("example").rows.length;
                    
                     var paso;
-                    for (paso=0;paso<((yea*1)-1);paso++){
                     var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
+                    for (paso=0;paso<((yea*1)-1);paso++){
+                    
                     var latitude = parseFloat(document.getElementById("latitud"+cont1.toString()).value);
                     var longitude = parseFloat(document.getElementById("longitud"+cont1.toString()).value);
-                    alert(latitude);
+                    
                     var api_url = 'https://api.opencagedata.com/geocode/v1/json'
 
                     var request_url = api_url
@@ -108,7 +109,7 @@ window.onload = function(){
 
                     // see full list of required and optional parameters:
                     // https://opencagedata.com/api#forward
-
+                    alert(request_url);
                     var request = new XMLHttpRequest();
                     request.open('GET', request_url, true);
 
@@ -142,6 +143,7 @@ window.onload = function(){
                     };
 
                     request.send();  // make the request
+                    request.close();
                     cont1=(cont1*1)+1;
                 }
   }                                              
