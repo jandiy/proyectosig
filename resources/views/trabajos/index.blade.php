@@ -70,10 +70,10 @@
 
 
                 echo '<script>';
-                echo  'var apikey = "5ac6a5f7d15b47b8a380b98684ae1885"';
-                echo  'var latitude = parseFloat(document.getElementById("latitud'.$nro.'").value)';
-                echo  'var longitude = parseFloat(document.getElementById("longitud'.$nro.'").value)';
-                echo 'alert(latitude)';
+                echo  'var apikey = "5ac6a5f7d15b47b8a380b98684ae1885";';
+                echo  'var latitude = parseFloat(document.getElementById("latitud'.$nro.'").value);';
+                echo  'var longitude = parseFloat(document.getElementById("longitud'.$nro.'").value);';
+                echo 'console.log(latitude);';
                 echo '</script>';
                 ?>
                 
