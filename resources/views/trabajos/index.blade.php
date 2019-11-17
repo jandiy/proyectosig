@@ -44,7 +44,7 @@
         <thead>
         <tr>            
             <th>Id</th>
-            <th width="280px">Direccion</th>
+            <th width="380px">Direccion</th>
             <th>Fecha</th>
             <th>Trabajador</th>
             <th>Estado</th>
@@ -94,8 +94,9 @@ window.onload = function(){
                     var paso;
                     var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
                     var api_url = 'https://api.opencagedata.com/geocode/v1/json';
+                    alert(yea);
                 for (paso=0;paso<((yea*1)-1);paso++){
-                    
+                    alert(paso);
                     var latitude = parseFloat(document.getElementById("latitud"+cont1.toString()).value);
                     var longitude = parseFloat(document.getElementById("longitud"+cont1.toString()).value);
                     alert(latitude);
