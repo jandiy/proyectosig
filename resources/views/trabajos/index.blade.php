@@ -66,7 +66,19 @@
                 echo '<input type="text" id="direccion'.$nro.'" value="" class="form-control" disabled>';
                 echo '<input type="hidden" id="longitud'.$nro.'" value='.$trabajo->longitud.'">';
                 echo '<input type="hidden" id="latitud'.$nro.'" value="'.$trabajo->latitud.'">';
+                echo '<input type="hidden" id="nro'.$nro.'" value='.$trabajo->longitud.'">';
+
+
+                echo '<script>';
+                echo  'var apikey = "5ac6a5f7d15b47b8a380b98684ae1885"';
+                echo  'var latitude = parseFloat(document.getElementById("latitud'.$nro.'").value)';
+                echo  'var longitude = parseFloat(document.getElementById("longitud'.$nro.'").value)';
+                echo 'alert(latitude)';
+                echo '</script>';
                 ?>
+                
+                    
+                
                 </td>
                 
                 <td>{{ $trabajo->fecha }}</td>
@@ -87,7 +99,7 @@
 @endsection
 @section('script')
 <script>
-window.onload = function(){
+/*window.onload = function(){
                     var cont1=1;
                     var yea=document.getElementById("example").rows.length;
                    
@@ -146,6 +158,6 @@ window.onload = function(){
                     request.close();
                     cont1=(cont1*1)+1;
                 }
-  }                                              
+  }*/                                           
 </script>
 @endsection
