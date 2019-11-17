@@ -43,7 +43,7 @@ class TrabajoController extends Controller
         where t.emergencia_id=e.id and t.id=".$id);
         $estado=DB::select("select dt.nombre
         from trabajo as t, detalle_trabajo as dt
-        where dt.estado='activo' and t.id=dt.trabajo_id and t.id=".$id);
+        where dt.estado=1 and t.id=dt.trabajo_id and t.id=".$id);
 
         return view('trabajos.show',compact('trabajo','direccion','estado','estudiante','ayudante'));
     }

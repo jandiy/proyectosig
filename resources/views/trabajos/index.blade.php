@@ -60,9 +60,10 @@
         @foreach ($trabajos as $key => $trabajo)
             <tr>
                 <td>{{ $trabajo->id }}</td>
-                <td><input type="text" id="direccion" value="" class="form-control" disabled>
+                <td>
                 <?php 
                 $nro=$nro + 1;
+                echo '<input type="text" id="direccion'.$nro.'" value="" class="form-control" disabled>';
                 echo '<input type="hidden" id="longitud'.$nro.'" value='.$trabajo->longitud.'">';
                 echo '<input type="hidden" id="latitud'.$nro.'" value="'.$trabajo->latitud.'">';
                 ?>
@@ -91,7 +92,7 @@ window.onload = function(){
                     var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
                     var latitude = parseFloat(document.getElementById("latitud"+cont1).value);
                     var longitude = parseFloat(document.getElementById("longitud"+cont1).value);
-                    cont1++;
+                   
                     var api_url = 'https://api.opencagedata.com/geocode/v1/json'
 
                     var request_url = api_url
@@ -114,7 +115,8 @@ window.onload = function(){
                         if (request.status == 200){ 
                         // Success!
                         var data = JSON.parse(request.responseText);
-                        document.getElementById("direccion").value=data.results[0].formatted;
+                        document.getElementById("direccion"+cont1).value=data.results[0].formatted;
+                        cont1++;
                        // alert(data.results[0].formatted);
 
                         } else if (request.status <= 500){ 
