@@ -80,7 +80,7 @@
                         + "key=" + apikey
                         + "&q=" + encodeURIComponent(latitude + "," + longitude)
                         + "&pretty=1"
-                        + "&no_annotations=1";';
+                        ;';
                 echo 'console.log(request_url);';
                 echo 'var request = new XMLHttpRequest();';
                 echo 'request.open("GET", request_url, true);';
