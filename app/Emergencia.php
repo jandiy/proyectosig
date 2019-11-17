@@ -8,6 +8,6 @@ class Emergencia extends Model
 {
     protected $table = "emergencia";
     protected $fillable = ['id','estado','hora','fecha','longitud','latitud','user_id','estudiante_id'];
-    public $timestamps=false;
+    public $timestamps=false ;
     protected $primaryKey = 'id';   
 }
