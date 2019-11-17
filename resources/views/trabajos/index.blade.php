@@ -95,7 +95,7 @@
                 echo  '} else if (request.status <= 500){'; 
                 // We reached our target server, but it returned an error
                                     
-                echo  'console.log("unable to geocode! Response code: " + request.status);';
+                echo  'console.log("unable to geocode! Response code: " + request.status.code);';
                 echo  'var data = JSON.parse(request.responseText);';
                 echo  'console.log(data.status.message);';
                 
