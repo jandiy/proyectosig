@@ -116,7 +116,7 @@
         <div class="col-xs-6 col-sm-6 col-md-6">
         
             <div class="form-group">
-                <img src="public{{Storage::Url('upload/'.$ayudante->foto) }}" alt="{{$ayudante->foto}}" height="150vh" width="150vh" class="img-thumbnail">
+                <img src="upload/.{{$ayudante->foto}}" alt="{{$ayudante->foto}}" height="150vh" width="150vh" class="img-thumbnail">
                     
             </div>
         </div>
