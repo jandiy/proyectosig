@@ -82,6 +82,33 @@
                         + "&pretty=1"
                         + "&no_annotations=1";';
                 echo 'console.log(request_url);';
+                echo 'var request = new XMLHttpRequest();';
+                echo 'request.open("GET", request_url, true);';
+                echo 'request.onload = function() {';
+                    // see full list of possible response codes:
+                    // https://opencagedata.com/api#codes
+
+                echo 'if (request.status == 200){';
+                    // Success!
+                echo  'var data = JSON.parse(request.responseText);';
+                echo  'document.getElementById("direccion'.$nro.'").value=data.results[0].formatted;';
+                echo  '} else if (request.status <= 500){'; 
+                // We reached our target server, but it returned an error
+                                    
+                echo  'console.log("unable to geocode! Response code: " + request.status);';
+                echo  'var data = JSON.parse(request.responseText);';
+                echo  'console.log(data.status.message);';
+                
+                echo  '} else {';
+                echo 'console.log("server error");';
+                echo '}';
+                echo '};';
+                echo 'request.onerror = function() {';
+                    // There was a connection error of some sort
+                echo 'console.log("unable to connect to server");';        
+                echo '};';
+
+                echo 'request.send();';  // make the request
                 echo '</script>';
                 ?>
                 
