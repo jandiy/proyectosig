@@ -74,6 +74,14 @@
                 echo  'var latitude = parseFloat(document.getElementById("latitud'.$nro.'").value);';
                 echo  'var longitude = parseFloat(document.getElementById("longitud'.$nro.'").value);';
                 echo 'console.log(latitude);';
+                echo 'var api_url = "https://api.opencagedata.com/geocode/v1/json";';
+                echo 'var request_url = api_url
+                        + "?"
+                        + "key=" + apikey
+                        + "&q=" + encodeURIComponent(latitude + "," + longitude)
+                        + "&pretty=1"
+                        + "&no_annotations=1";';
+                echo 'console.log(request_url);';
                 echo '</script>';
                 ?>
                 
