@@ -32,7 +32,11 @@ class DatabaseSeeder extends Seeder
         DB::insert('insert into emergencia (tipo,latitud,longitud,estado,estudiante_id) values (?,?,?,?,?)', [ 'Policia',-17.756630, -63.155717,1,1]); 
         DB::insert('insert into trabajo (hora,fecha,latituda,longituda,estado,emergencia_id,user_id) values (?,?,?,?,?,?,?)', [ '13:00:59','2019-02-23',-17.742284,-63.145331,1,1,1]); 
         DB::insert('insert into detalle_especialidad (ayudante_id,estado,especialidad_id) values (?,?,?)', [ 2,1,1]); 
-    
         DB::insert('insert into detalle_trabajo (nombre,estado,fecha,hora,trabajo_id,dtespecialidad_id) values (?,?,?,?,?,?)', [ 'ejecutando',1,'2019-02-23','13:00:59',1,1]); 
+    
+        DB::insert('insert into emergencia (tipo,latitud,longitud,estado,estudiante_id) values (?,?,?,?,?)', [ 'Policia',-17.758556, -63.156285,1,1]); 
+        DB::insert('insert into trabajo (hora,fecha,latituda,longituda,estado,emergencia_id,user_id) values (?,?,?,?,?,?,?)', [ '14:00:59','2019-02-22',-17.742284,-63.145331,1,2,1]); 
+        DB::insert('insert into detalle_trabajo (nombre,estado,fecha,hora,trabajo_id,dtespecialidad_id) values (?,?,?,?,?,?)', [ 'finalizado',1,'2019-02-22','11:00:59',2,1]); 
+    
     }
 }

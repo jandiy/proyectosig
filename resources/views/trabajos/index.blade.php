@@ -44,18 +44,18 @@
         <thead>
         <tr>            
             <th>Id</th>
-            <th>Direccion</th>
+            <th width="280px">Direccion</th>
             <th>Fecha</th>
             <th>Trabajador</th>
             <th>Estado</th>
-            <th width="280px">Accion</th>
+            <th width="180px">Accion</th>
         </tr>
         </thead>
         <tfoot>
         </tfoot>
         <tbody>
         <?php 
-            echo $nro=0;
+            $nro=0;
         ?>
         @foreach ($trabajos as $key => $trabajo)
             <tr>
@@ -72,7 +72,7 @@
                 <td>{{ $trabajo->nombre }}&nbsp;{{ $trabajo->apellido }}</td>
                 <td>{{ $trabajo->estado}}</td>
                 <td>
-                    <a class="btn btn-app" style="min-width: 60px;height: 60px"  href="{{ route('ayudantes.show',$trabajo->id) }}"><i class="fa  fa-info"></i>
+                    <a class="btn btn-app" style="min-width: 60px;height: 60px"  href="{{ route('trabajos.show',$trabajo->id) }}"><i class="fa  fa-info"></i>
                         Show
                     </a>
                   
