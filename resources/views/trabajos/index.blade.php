@@ -89,6 +89,10 @@
 <script>
 window.onload = function(){
                     var cont1=1;
+                    var yea=document.getElementById("example").rows.length;
+                    alert(yea);
+                    var paso;
+                    for (paso=0;paso<yea;paso++){
                     var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
                     var latitude = parseFloat(document.getElementById("latitud"+cont1).value);
                     var longitude = parseFloat(document.getElementById("longitud"+cont1).value);
@@ -136,6 +140,7 @@ window.onload = function(){
                     };
 
                     request.send();  // make the request
+                }
   }                                              
 </script>
 @endsection
