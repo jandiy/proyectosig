@@ -18,8 +18,8 @@ class CreateTrabajo extends Migration
             $table->integer('estado');
             $table->time('hora');
             $table->date('fecha');
-            $table->double('latitudA',15,10);
-            $table->double('longitudA',15,10);
+            $table->double('latituda',15,10);
+            $table->double('longituda',15,10);
             $table->integer('emergencia_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')
