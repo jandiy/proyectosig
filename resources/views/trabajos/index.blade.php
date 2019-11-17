@@ -121,7 +121,7 @@ window.onload = function(){
                         var data = JSON.parse(request.responseText);
                         document.getElementById("direccion"+cont1.toString()).value=data.results[0].formatted;
                         alert(data.results[0].formatted);
-                        cont1++;
+                        
                        // alert(data.results[0].formatted);
 
                         } else if (request.status <= 500){ 
@@ -141,6 +141,7 @@ window.onload = function(){
                     };
 
                     request.send();  // make the request
+                    cont1=(cont1*1)+1;
                 }
   }                                              
 </script>
