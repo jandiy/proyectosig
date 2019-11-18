@@ -38,7 +38,7 @@ class TrabajoController extends Controller
         $ayudante=DB::select("select um.nombre, um.id, um.apellido
         from trabajo as t, detalle_trabajo as dt, detalle_especialidad as de, usuario_movil as um
         where t.id=dt.trabajo_id and de.ayudante_id=um.id and de.id=dt.dtespecialidad_id and t.id=".$id);
-        $direccion=DB::select("select e.longitud, e.latitud
+        $direccion=DB::select("select distinct e.longitud, e.latitud
         from trabajo as t, usuario_movil as um, emergencia as e
         where t.emergencia_id=e.id and t.id=".$id);
         $estado=DB::select("select dt.nombre
