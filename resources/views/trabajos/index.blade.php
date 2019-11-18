@@ -44,7 +44,7 @@
         <thead>
         <tr>            
             <th>Id</th>
-            <th width="380px">Direccion</th>
+            <th width="400px">Direccion</th>
             <th>Fecha</th>
             <th>Trabajador</th>
             <th>Estado</th>
@@ -132,68 +132,4 @@
         </tbody>
     </table>
 </div>
-@endsection
-@section('script')
-<script>
-/*window.onload = function(){
-                    var cont1=1;
-                    var yea=document.getElementById("example").rows.length;
-                   
-                    var paso;
-                    var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
-                    var api_url = 'https://api.opencagedata.com/geocode/v1/json';
-                    alert(yea);
-                for (paso=0;paso<((yea*1)-1);paso++){
-                    alert(paso);
-                    var latitude = parseFloat(document.getElementById("latitud"+cont1.toString()).value);
-                    var longitude = parseFloat(document.getElementById("longitud"+cont1.toString()).value);
-                    alert(latitude);
-                    var request_url = api_url
-                        + '?'
-                        + 'key=' + apikey
-                        + '&q=' + encodeURIComponent(latitude + ',' + longitude)
-                        + '&pretty=1'
-                        + '&no_annotations=1';
-
-                    // see full list of required and optional parameters:
-                    // https://opencagedata.com/api#forward
-                    alert(request_url);
-                    var request = new XMLHttpRequest();
-                    request.open('GET', request_url, true);
-
-                    request.onload = function() {
-                        // see full list of possible response codes:
-                        // https://opencagedata.com/api#codes
-
-                        if (request.status == 200){ 
-                        // Success!
-                        var data = JSON.parse(request.responseText);
-                        document.getElementById("direccion"+cont1.toString()).value=data.results[0].formatted;
-                        alert(data.results[0].formatted);
-                        
-                       // alert(data.results[0].formatted);
-
-                        } else if (request.status <= 500){ 
-                        // We reached our target server, but it returned an error
-                                            
-                        console.log("unable to geocode! Response code: " + request.status);
-                        var data = JSON.parse(request.responseText);
-                        console.log(data.status.message);
-                        alert(data.status.message);
-                        } else {
-                        console.log("server error");
-                        }
-                    };
-
-                    request.onerror = function() {
-                        // There was a connection error of some sort
-                        console.log("unable to connect to server");        
-                    };
-
-                    request.send();  // make the request
-                    request.close();
-                    cont1=(cont1*1)+1;
-                }
-  }*/                                           
-</script>
 @endsection

@@ -15,7 +15,9 @@ class EmergenciaController extends Controller
         from usuario_movil as um, trabajo as e 
         where um.id=e.usuario_id");
         $emergencias=''; 
-        $grupos=DB::select("select g.nombre, g.id from grupo as g");  
-        return view('emergencias.index',compact('trabajos','emergencias'));
+        $grupos=DB::select("select g.nombre, g.id from grupo as g");
+        $ayudantes=DB::select("select um.nombre, um.apellido
+        from usuario_movil as um");  
+        return view('emergencias.index',compact('trabajos','emergencias','grupos','ayudantes'));
     }
 }

@@ -30,12 +30,14 @@
             </div>
             <div class="form-group">
                 <strong>Direccion:</strong>
+                <?php $nro=0;  ?>
                 @foreach($direccion as $key=>$d)
-                <input type="text" id="direccion" value="" class="form-control" disabled>
-                <input type="hidden" id="longitud" value="{{$d->longitud}}">
-                <input type="hidden" id="latitud" value="{{$d->latitud}}">
-                <script>
-                    var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
+                <?php
+                echo '<input type="text" id="direccion" value="" class="form-control" disabled>';
+                echo '<input type="text" id="longitud'.$nro.'" value="'.$d->longitud.'">';
+                echo '<input type="text" id="latitud',$nro.'" value="'.$d->latitud.'">';
+                echo '<script>';
+                   /* var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
                     var latitude = parseFloat(document.getElementById("latitud").value);
                     var longitude = parseFloat(document.getElementById("longitud").value);
                    
@@ -73,16 +75,17 @@
                         } else {
                         console.log("server error");
                         }
-                    };
+                  echo '};';
 
-                    request.onerror = function() {
+                  echo  'request.onerror = function() {';
                         // There was a connection error of some sort
-                        console.log("unable to connect to server");        
-                    };
+                  echo  'console.log("unable to connect to server");';        
+                  echo  '};';
 
-                    request.send();  // make the request
-                                                
-                    </script>
+                  echo 'request.send();';  // make the request
+                                   */             
+                  echo '</script>';
+                ?>
                 @endforeach
             </div>
             <div class="form-group">
