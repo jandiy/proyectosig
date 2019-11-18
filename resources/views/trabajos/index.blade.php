@@ -80,10 +80,11 @@
                         + "key=" + apikey
                         + "&q=" + encodeURIComponent(latitude + "," + longitude)
                         + "&pretty=1"
-                        ;';
+                        + "&no_annotations=1";';
                 echo 'console.log(request_url);';
                 echo 'var request = new XMLHttpRequest();';
                 echo 'request.open("GET", request_url, true);';
+                echo 'console.log(request_url);';
                 echo 'request.onload = function() {';
                     // see full list of possible response codes:
                     // https://opencagedata.com/api#codes
@@ -95,7 +96,7 @@
                 echo  '} else if (request.status <= 500){'; 
                 // We reached our target server, but it returned an error
                                     
-                echo  'console.log("unable to geocode! Response code: " + request.status.code);';
+                echo  'console.log("unable to geocode! Response code: " + request.status);';
                 echo  'var data = JSON.parse(request.responseText);';
                 echo  'console.log(data.status.message);';
                 
