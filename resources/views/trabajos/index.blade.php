@@ -74,17 +74,17 @@
                 echo  'var latitude = parseFloat(document.getElementById("latitud'.$nro.'").value);';
                 echo  'var longitude = parseFloat(document.getElementById("longitud'.$nro.'").value);';
                 echo 'console.log(latitude);';
-                echo 'var api_url = "https://api.opencagedata.com/geocode/v1/json";';
-                echo 'var request_url = api_url
+                echo 'var api_url'.$nro.' = "https://api.opencagedata.com/geocode/v1/json";';
+                echo 'var request_url'.$nro.' = api_ur'.$nro.'
                         + "?"
                         + "key=" + apikey
                         + "&q=" + encodeURIComponent(latitude + "," + longitude)
                         + "&pretty=1"
                         + "&no_annotations=1";';
-                echo 'console.log(request_url);';
+                echo 'console.log(request_url'.$nro.');';
                 echo 'var request = new XMLHttpRequest();';
-                echo 'request.open("GET", request_url, true);';
-                echo 'console.log(request_url);';
+                echo 'request.open("GET", request_url'.$nro.', true);';
+               // echo 'console.log(request_url);';
                 echo 'request.onload = function() {';
                     // see full list of possible response codes:
                     // https://opencagedata.com/api#codes
