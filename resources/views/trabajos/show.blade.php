@@ -24,6 +24,7 @@
 
                 echo  'var m={lat:'.$trabajo->latituda.', lng: '.$trabajo->longituda.'}';
                 echo  'var m2={lat: parseFloat(document.getElementById("latitud").value), lng: parseFloat(document.getElementById("longitud").value)}';
+                echo 'function initMap(){';
                 echo 'var mapProp = {
                             center: m,
 
@@ -51,11 +52,12 @@
                     
                   // Inicializando el mapa cuando se carga la página
                 echo 'google.maps.event.addDomListener(window, "load", initialize);';
+                
                 echo "</script>";
                 ?>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAofod0Bp0frLcLHVLxuacn0QBXqVyJ7lc&callback=initMap"
                 async defer></script>
-        </div>
+        
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
             @foreach($ayudante as $key=>$a)
