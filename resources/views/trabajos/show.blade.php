@@ -13,7 +13,50 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xs-6 col-sm-6 col-md-6">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+            <div id="map" style="width:100%;height:400px;"></div>
+            </div>
+            <?php
+                $map="'map'";
+
+                echo '<script>';
+                       
+
+                echo  'var m={lat:'.$trabajo->latituda.', lng: '.$trabajo->longituda.'}';
+                echo  'var m2={lat: parseFloat(document.getElementById("latitud").value), lng: parseFloat(document.getElementById("longitud").value)}';
+                echo 'var mapProp = {
+                            center: m,
+
+                            zoom: 10,
+                            mapTypeId: google.maps.MapTypeId.TERRAIN
+                        };';
+                echo 'var map = new google.maps.Map(document.getElementById("map"),mapProp);';
+                echo 'var flightPlanCoordinates = [
+                    m,
+                    m2
+                  ];';
+                   
+                  // Información de la ruta (coordenadas, color de línea, etc...)
+                echo 'var flightPath = new google.maps.Polyline({
+                    path: flightPlanCoordinates,
+                    geodesic: true,
+                    strokeColor: "#FF0000",
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
+                  });';
+                   
+                  // Creando la ruta en el mapa
+                echo 'flightPath.setMap(map);
+                  }';
+                    
+                  // Inicializando el mapa cuando se carga la página
+                echo 'google.maps.event.addDomListener(window, "load", initialize);';
+                echo "</script>";
+                ?>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAofod0Bp0frLcLHVLxuacn0QBXqVyJ7lc&callback=initMap"
+                async defer></script>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
             @foreach($ayudante as $key=>$a)
                 <strong>Trabajador:</strong>
@@ -30,14 +73,13 @@
             </div>
             <div class="form-group">
                 <strong>Direccion:</strong>
-                <?php $nro=0;  ?>
+                
                 @foreach($direccion as $key=>$d)
-                <?php
-                echo '<input type="text" id="direccion" value="" class="form-control" disabled>';
-                echo '<input type="text" id="longitud'.$nro.'" value="'.$d->longitud.'">';
-                echo '<input type="text" id="latitud',$nro.'" value="'.$d->latitud.'">';
-                echo '<script>';
-                   /* var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
+                <input type="text" id="direccion" value="" class="form-control" disabled>
+                <input type="text" id="longitud" value="{{$d->longitud}}">
+                <input type="text" id="latitud" value="{{$d->latitud}}">
+                <script>
+                    var apikey = '5ac6a5f7d15b47b8a380b98684ae1885';
                     var latitude = parseFloat(document.getElementById("latitud").value);
                     var longitude = parseFloat(document.getElementById("longitud").value);
                    
@@ -75,17 +117,16 @@
                         } else {
                         console.log("server error");
                         }
-                  echo '};';
+                    };
 
-                  echo  'request.onerror = function() {';
+                    request.onerror = function() {
                         // There was a connection error of some sort
-                  echo  'console.log("unable to connect to server");';        
-                  echo  '};';
+                        console.log("unable to connect to server");        
+                    };
 
-                  echo 'request.send();';  // make the request
-                                   */             
-                  echo '</script>';
-                ?>
+                    request.send();  // make the request
+                                                
+                    </script>
                 @endforeach
             </div>
             <div class="form-group">
