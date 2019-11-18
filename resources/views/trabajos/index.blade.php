@@ -82,34 +82,34 @@
                         + "&pretty=1"
                         + "&no_annotations=1";';
                 echo 'console.log(request_url'.$nro.');';
-                echo 'var request = new XMLHttpRequest();';
-                echo 'request.open("GET", request_url'.$nro.', true);';
+                echo 'var request'.$nro.' = new XMLHttpRequest();';
+                echo 'request'.$nro.'.open("GET", request_url'.$nro.', true);';
                // echo 'console.log(request_url);';
-                echo 'request.onload = function() {';
+                echo 'request'.$nro.'.onload = function() {';
                     // see full list of possible response codes:
                     // https://opencagedata.com/api#codes
 
-                echo 'if (request.status == 200){';
+                echo 'if (request'.$nro.'.status == 200){';
                     // Success!
-                echo  'var data = JSON.parse(request.responseText);';
-                echo  'document.getElementById("direccion'.$nro.'").value=data.results[0].formatted;';
-                echo  '} else if (request.status <= 500){'; 
+                echo  'var data'.$nro.' = JSON.parse(request'.$nro.'.responseText);';
+                echo  'document.getElementById("direccion'.$nro.'").value=data'.$nro.'.results[0].formatted;';
+                echo  '} else if (request'.$nro.'.status <= 500){'; 
                 // We reached our target server, but it returned an error
                                     
-                echo  'console.log("unable to geocode! Response code: " + request.status);';
-                echo  'var data = JSON.parse(request.responseText);';
-                echo  'console.log(data.status.message);';
+                echo  'console.log("unable to geocode! Response code: " + request'.$nro.'.status);';
+                echo  'var data'.$nro.' = JSON.parse(request'.$nro.'.responseText);';
+                echo  'console.log(data'.$nro.'.status.message);';
                 
                 echo  '} else {';
                 echo 'console.log("server error");';
                 echo '}';
                 echo '};';
-                echo 'request.onerror = function() {';
+                echo 'request'.$nro.'.onerror = function() {';
                     // There was a connection error of some sort
                 echo 'console.log("unable to connect to server");';        
                 echo '};';
 
-                echo 'request.send();';  // make the request
+                echo 'request'.$nro.'.send();';  // make the request
                 echo '</script>';
                 ?>
                 
