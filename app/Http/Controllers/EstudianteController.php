@@ -75,12 +75,15 @@ class EstudianteController extends Controller
             'contrasena'=> 'required', 
             'email'=> 'required',                   
         ]);
+        $email='@gmail.com';
         $con=$request->contrasena;
-        $em=$request->email;
+        $em=$request->email+$email;
        /* $usuario = DB::select("select um.id, um.nombre, um.apellido, um.foto, um.correo, um.contrasena, um.celular, um.contacto_emergencia, um.latitud, um.longitud
         from usuario_movil as um
         where um.contrasena=".$con." and um.email=".$em);*/
-        $usuario=DB::table('usuario_movil as um')       
+        
+        $usuario=DB::table('usuario_movil as um')
+        ->join('ayudante as a','a.id','=','um.usuario_id')     
          ->select('um.id', 'um.nombre', 'um.apellido', 'um.foto', 'um.correo','um.contrasena', 'um.celular', 'um.contacto_emergencia', 'um.latitud', 'um.longitud')
          ->where('um.correo',$em)
          ->where('um.contrasena',$con)
