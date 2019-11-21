@@ -76,7 +76,7 @@ class EstudianteController extends Controller
             'email'=> 'required',                   
         ]);
         $email='@gmail.com';
-        $con=$request->contrasena;
+        $con=$request->contrasena*1;
         $em=$request->email+$email;
        /* $usuario = DB::select("select um.id, um.nombre, um.apellido, um.foto, um.correo, um.contrasena, um.celular, um.contacto_emergencia, um.latitud, um.longitud
         from usuario_movil as um
