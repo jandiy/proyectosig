@@ -30,15 +30,27 @@ class AyudanteController extends Controller
       
         return view('ayudantes.create',compact('especialidades'));
     }
-    public function login()
+    public function getDatos(Request $request)
     {
-        //$ayudante = DB::select("select um.id
-       // from usuario_movil as um, ayudante as a
-       // where um.id=a.usuario_id");
-       $ayudante= DB::select("select um.id, um.nombre, um.apellido, um.foto, um.correo, um.contrasena, um.celular, um.contacto_emergencia, um.latitud, um.longitud, a.fecha_registro, a.estado
-       from usuario_movil as um, ayudante as a
-       where um.id=a.usuario_id");
-        return response()->json($ayudante);
+        $this->validate($request, [
+            
+            'contrasena'=> 'required', 
+            'email'=> 'required',                   
+        ]);
+        $email='@gmail.com';
+        $con=($request->contrasena);
+        $em=($request->email).$email;
+       /* $usuario = DB::select("select um.id, um.nombre, um.apellido, um.foto, um.correo, um.contrasena, um.celular, um.contacto_emergencia, um.latitud, um.longitud
+        from usuario_movil as um
+        where um.contrasena=".$con." and um.email=".$em);*/
+        
+        $usuario=DB::table('usuario_movil as um')  
+         ->join('ayudante as a','a.usuario_id','=','um.id')
+         ->select('um.id', 'um.nombre', 'um.apellido', 'um.foto', 'um.correo','um.contrasena', 'um.celular', 'um.contacto_emergencia', 'um.latitud', 'um.longitud')
+         ->where('um.correo',$em)
+         ->where('um.contrasena',$con)
+         ->get();
+        return response()->json($usuario);
     }
 
     /**
