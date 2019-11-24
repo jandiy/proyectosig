@@ -58,7 +58,16 @@ class EstudianteController extends Controller
            $request->file->storeAs('public/upload','1569212052_img_msanoja_20160801-194152_imagenes_lv_getty.jpg');
            $usuario->foto=$filename;
           }
+        
         if($usuario->save()){
+            $estudiante= new Estudiante();
+            $estudiante->usuario_id=$usuario->id;
+            $time= Carbon::now('America/La_Paz');
+            $estudiante->fecha_registro=$time->toDateString();
+            $estudiante->carrera=$request->input('carrera');
+            $estudiante->facultad=$request->input('facultad');
+            $estudiante->estado=1;
+            $estudiante->save();
             return response()->json($usuario);
         }
         else{
@@ -90,4 +99,7 @@ class EstudianteController extends Controller
          ->get();
         return response()->json($usuario);
     }
+    
+
+    
 }

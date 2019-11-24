@@ -46,5 +46,5 @@ class TrabajoController extends Controller
         where dt.estado=1 and t.id=dt.trabajo_id and t.id=".$id);
 
         return view('trabajos.show',compact('trabajo','direccion','estado','estudiante','ayudante'));
-    }
+    } 
 }
