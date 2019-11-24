@@ -50,7 +50,7 @@ class AyudanteController extends Controller
          ->where('um.correo',$em)
          ->where('um.contrasena',$con)
          ->get();
-        return response()->json($usuario);
+        return response()->json(['data'=> $usuario]);
     }
 
     /**
