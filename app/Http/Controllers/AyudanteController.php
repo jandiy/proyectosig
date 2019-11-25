@@ -9,6 +9,7 @@ use App\UsuarioMovil;
 use App\Ayudante;
 use App\DetalleEspecialidad;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use Hash;
 
 class AyudanteController extends Controller
@@ -85,13 +86,24 @@ class AyudanteController extends Controller
         $usuario->contacto_emergencia= $request->input('contacto_emergencia');
         $usuario->latitud= $request->input('latitud');
         $usuario->longitud= $request->input('longitud');
-        if($request->hasFile('file'))
+        /*if($request->hasFile('file'))
           {
 
            $filename= time().'_'.$request->file->getClientOriginalName(); 
            $request->file->storeAs('public/upload',$filename);
            $usuario->foto=$filename;
-          }
+          }*/
+        if(Input::hasFile('file')){
+            $imagen= $request->file('file');
+            $name = $imagen->getClientOriginalName();
+            $extension=$imagen->getClientOriginalExtension();
+            $nuevoNombre ='ayudante-'.$registro.'.'.$extension;
+            $rutadelarchivo='/img/ayudante/'.$nuevoNombre;
+            $archivo= Input::file('file');
+            $archivo->move(public_path().'/img/ayudante/',$nuevoNombre);
+            $usuario->foto=$rutadelarchivo;
+        }
+
         $usuario->save();
         $ayudante= new Ayudante();
         $ayudante->usuario_id=$usuario->id;
