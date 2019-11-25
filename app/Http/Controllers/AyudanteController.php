@@ -93,8 +93,9 @@ class AyudanteController extends Controller
            $request->file->storeAs('public/upload',$filename);
            $usuario->foto=$filename;
           }*/
+          $registro=date('Y').date('m').date('d').date('h').date('i').date('s');
         if(Input::hasFile('file')){
-            $imagen= $request->file;
+            $imagen= $request->file('file');
             $name = $imagen->getClientOriginalName();
             $extension=$imagen->getClientOriginalExtension();
             $nuevoNombre ='ayudante-'.$registro.'.'.$extension;
