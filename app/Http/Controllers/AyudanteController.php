@@ -94,7 +94,7 @@ class AyudanteController extends Controller
            $usuario->foto=$filename;
           }*/
         if(Input::hasFile('file')){
-            $imagen= $request->file('file');
+            $imagen= $request->file;
             $name = $imagen->getClientOriginalName();
             $extension=$imagen->getClientOriginalExtension();
             $nuevoNombre ='ayudante-'.$registro.'.'.$extension;
