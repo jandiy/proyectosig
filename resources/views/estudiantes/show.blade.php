@@ -61,7 +61,7 @@
 
         <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="form-group">
-                <img src="{{Storage::Url('upload/'.$estudiante->foto) }}" alt="{{$estudiante->foto}}" height="150vh" width="150vh" class="img-thumbnail">
+                <img src="{{$estudiante->foto}}" alt="{{$estudiante->foto}}" height="150vh" width="150vh" class="img-thumbnail">
                     
             </div>
         </div>
