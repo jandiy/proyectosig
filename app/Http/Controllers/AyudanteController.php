@@ -117,7 +117,11 @@ class AyudanteController extends Controller
         $detalle->especialidad_id=$request->input('especialidad');
         $detalle->estado=1;
         $detalle->save();
-
+        $ubicacion=new Ubicacion();
+        $ubicacion->latitud=0;
+        $ubicacion->longitud=0;
+        $ubicacion->ayudante_id=$ayudante->usuario_id;
+        $ubicacion->save();
         return redirect()->route('ayudantes.index')
             ->with('success','Ayudante Registrado Exitosamente');    
     }

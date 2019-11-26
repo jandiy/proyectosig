@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h1>Visualizar Estudiante</h1>
+                <h1>Emergencias</h1>
             </div>
             <div class="pull-right">
 
@@ -20,33 +20,33 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    <table id="example" class="display" cellspacing="0" width="100%">
-        <thead>
-        <tr>            
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th width="280px">Accion</th>
-        </tr>
-        </thead>
-        <tfoot>
-        </tfoot>
-        <tbody>
-        @foreach ($estudiantes as $key => $estudiante)
-            <tr>
-                <td>{{ $estudiante->id }}</td>
-                <td>{{ $estudiante->nombre }}</td>
-                <td>{{ $estudiante->apellido }}</td>
-                <td>
-                    <a class="btn btn-app" style="min-width: 60px;height: 60px"  href="{{ route('ayudantes.show',$ayudante->id) }}"><i class="fa  fa-info"></i>
-                        Show
-                    </a>
-                  
-                   
-                </td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+            <div id="map" style="width:100%;height:400px;"></div>
+            </div>
+            <?php
+
+
+                $map="'map'";
+
+                echo '<script>
+                    var map;';
+
+                echo  'var m={lat:'.$cart->latitud.', lng: '.$cart->longitud.'};
+                    function initMap() {
+                        map = new google.maps.Map(document.getElementById( ';
+                echo $map;
+                echo '), {
+                        center: m,
+
+                        zoom: 14
+                        });';
+
+                echo 'var marker = new google.maps.Marker({position: m, map: map});}';
+                                echo "</script>";
+
+            ?>
+				<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAofod0Bp0frLcLHVLxuacn0QBXqVyJ7lc&callback=initMap"></script>
+
+
 </div>
 @endsection
