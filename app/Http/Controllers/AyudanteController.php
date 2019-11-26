@@ -54,6 +54,7 @@ class AyudanteController extends Controller
          ->where('um.correo',$em)
          ->where('um.contrasena',$con)
          ->get();
+        if($usuario != null){ 
         $ubi=DB::select("select u.id
         from ubicacion as u
         where u.ayudante_id=".$usuario[0]->id);
@@ -62,6 +63,7 @@ class AyudanteController extends Controller
         $ubicacion->latitud=$request->latitud;
         $ubicacion->longitud=$request->longitud;
         $ubicacion->update();
+        }
         
         return response()->json(['data'=> $usuario]);
     }
