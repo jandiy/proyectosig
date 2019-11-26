@@ -54,6 +54,7 @@ class AyudanteController extends Controller
          ->where('um.correo',$em)
          ->where('um.contrasena',$con)
          ->get();
+        dd($usuario->id);
         $ubi=DB::select("select u.id
         from ubicacion as u
         where u.ayudante_id=".$usuario->id);
