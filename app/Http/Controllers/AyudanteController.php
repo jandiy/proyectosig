@@ -58,7 +58,7 @@ class AyudanteController extends Controller
         from ubicacion as u
         where u.ayudante_id=".$usuario[0]->id);
         
-        $ubicacion=Ubicacion::fin($ubi[0]->id);
+        $ubicacion=Ubicacion::find($ubi[0]->id);
         $ubicacion->latitud=$request->latitud;
         $ubicacion->longitud=$request->longitud;
         $ubicacion->update();
