@@ -7,6 +7,7 @@ use DB;
 use Carbon\Carbon;
 use App\UsuarioMovil;
 use App\Ayudante;
+use App\Ubicacion;
 use App\DetalleEspecialidad;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
@@ -36,7 +37,9 @@ class AyudanteController extends Controller
         $this->validate($request, [
             
             'contrasena'=> 'required', 
-            'email'=> 'required',                   
+            'email'=> 'required',
+            'latitud'=> 'required', 
+            'longitud'=> 'required',                   
         ]);
         $email='@gmail.com';
         $con=($request->contrasena);
@@ -51,6 +54,13 @@ class AyudanteController extends Controller
          ->where('um.correo',$em)
          ->where('um.contrasena',$con)
          ->get();
+        $ubi=DB::select("select u.id
+        from ubicacion as u
+        where u.ayudante_id=".$usuario->id);
+        $ubicacion=Ubicacion::fin($ubi[0]->id);
+        $ubicacion->latitud=$request->latitud;
+        $ubicacion->longitud=$request->longitud;
+        $ubicacion->update();
         return response()->json(['data'=> $usuario]);
     }
 
