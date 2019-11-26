@@ -57,6 +57,8 @@ class AyudanteController extends Controller
         $ubi=DB::select("select u.id
         from ubicacion as u
         where u.ayudante_id=".$usuario->id);
+        dd($ubi);
+        dd($ubi[0]->id);
         $ubicacion=Ubicacion::fin($ubi[0]->id);
         $ubicacion->latitud=$request->latitud;
         $ubicacion->longitud=$request->longitud;
